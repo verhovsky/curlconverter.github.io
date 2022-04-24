@@ -76,7 +76,8 @@
           <option value="java">Java</option>
           <option value="javascript">JavaScript</option>
           <option value="json">JSON</option>
-          <option value="node">Node.js (fetch)</option>
+          <option value="node-fetch">Node.js (node-fetch)</option>
+          <option value="node-axios">Node.js (axios)</option>
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
@@ -114,7 +115,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Node.js</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#node">fetch</a></li>
+            <li><a class="dropdown-item" href="#node-fetch">node-fetch</a></li>
+            <li><a class="dropdown-item" href="#node-axios">axios</a></li>
             <li><a class="dropdown-item" href="#node-request">request</a></li>
           </ul>
         </li>
@@ -148,6 +150,11 @@
       <div id="copy-to-clipboard" class="text-end"><a href="#">Copy to clipboard</a></div>
       <div style="display: none;" id="issue-promo">If your syntax is correct, create a
         <a href="https://github.com/curlconverter/curlconverter/issues/new" target="_blank">new issue</a> <span style="display: none;" id="prefilled-issue"> or <a href="" target="_blank">prefilled with the current input</a></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col pt-3">
+        <pre><code style="display: none;" id="warnings"></code></pre>
       </div>
     </div>
 
