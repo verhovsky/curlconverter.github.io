@@ -24,7 +24,7 @@
 
     <link href="/main.css" rel="stylesheet">
 
-    <title>Convert curl commands to node-fetch</title>
+    <title>Convert curl commands to Node + SuperAgent</title>
   </head>
   <body>
 
@@ -93,9 +93,9 @@
           <option value="matlab">MATLAB</option>
           <option value="node-axios">Node.js + Axios</option>
           <option value="node-got">Node.js + Got</option>
-          <option value="node-fetch" selected>Node.js + node-fetch</option>
+          <option value="node-fetch">Node.js + node-fetch</option>
           <option value="node-request">Node.js + request</option>
-          <option value="node-superagent">Node.js + SuperAgent</option>
+          <option value="node-superagent" selected>Node.js + SuperAgent</option>
           <option value="node-http">Node + http</option>
           <option value="objectivec">Objective-C</option>
           <option value="ocaml">OCaml</option>
@@ -176,13 +176,13 @@
           <a class="nav-link" href="/matlab/">MATLAB</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Node.js</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Node.js</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/node-axios/">Axios</a></li>
             <li><a class="dropdown-item" href="/node-got/">Got</a></li>
-            <li><a class="dropdown-item active" href="/node-fetch/">node-fetch</a></li>
+            <li><a class="dropdown-item" href="/node-fetch/">node-fetch</a></li>
             <li><a class="dropdown-item" href="/node-request/">request</a></li>
-            <li><a class="dropdown-item" href="/node-superagent/">SuperAgent</a></li>
+            <li><a class="dropdown-item active" href="/node-superagent/">SuperAgent</a></li>
             <li><a class="dropdown-item" href="/node-http/">http</a></li>
           </ul>
         </li>
@@ -233,9 +233,13 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;node-fetch&#x27;</span>;
+        <pre><code id="generated-code"><span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;superagent&#x27;</span>;
 
-<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://example.com&#x27;</span>);
+request
+  .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">body</span>);
+  });
 </code></pre>
       </div>
     </div>
