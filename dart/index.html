@@ -84,6 +84,7 @@
           <option value="httpie">HTTPie</option>
           <option value="java">Java + HttpClient</option>
           <option value="java-httpurlconnection">Java + HttpURLConnection</option>
+          <option value="java-jsoup">Java + jsoup</option>
           <option value="java-okhttp">Java + OkHttp</option>
           <option value="javascript">JavaScript + fetch</option>
           <option value="javascript-jquery">JavaScript + jQuery</option>
@@ -155,6 +156,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/java/">HttpClient</a></li>
             <li><a class="dropdown-item" href="/java-httpurlconnection/">HttpURLConnection</a></li>
+            <li><a class="dropdown-item" href="/java-jsoup/">jsoup</a></li>
             <li><a class="dropdown-item" href="/java-okhttp/">OkHttp</a></li>
           </ul>
         </li>
@@ -236,9 +238,12 @@
         <pre><code id="generated-code"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;package:http/http.dart&#x27;</span> <span class="hljs-keyword">as</span> http;
 
 <span class="hljs-keyword">void</span> main() <span class="hljs-keyword">async</span> {
-  <span class="hljs-keyword">var</span> url = <span class="hljs-built_in">Uri</span>.parse(<span class="hljs-string">&#x27;http://example.com&#x27;</span>);
-  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">await</span> http.<span class="hljs-keyword">get</span>(url);
-  <span class="hljs-keyword">if</span> (res.statusCode != <span class="hljs-number">200</span>) <span class="hljs-keyword">throw</span> Exception(<span class="hljs-string">&#x27;http.get error: statusCode= <span class="hljs-subst">${res.statusCode}</span>&#x27;</span>);
+  <span class="hljs-keyword">final</span> url = <span class="hljs-built_in">Uri</span>.parse(<span class="hljs-string">&#x27;http://example.com&#x27;</span>);
+
+  <span class="hljs-keyword">final</span> res = <span class="hljs-keyword">await</span> http.<span class="hljs-keyword">get</span>(url);
+  <span class="hljs-keyword">final</span> status = res.statusCode;
+  <span class="hljs-keyword">if</span> (status != <span class="hljs-number">200</span>) <span class="hljs-keyword">throw</span> Exception(<span class="hljs-string">&#x27;http.get error: statusCode= <span class="hljs-subst">$status</span>&#x27;</span>);
+
   <span class="hljs-built_in">print</span>(res.body);
 }
 </code></pre>
