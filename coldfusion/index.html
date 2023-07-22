@@ -24,7 +24,7 @@
 
     <link href="/main.css" rel="stylesheet">
 
-    <title>Convert curl commands to Python</title>
+    <title>Convert curl commands to ColdFusion Markup Language</title>
   </head>
   <body>
 
@@ -75,7 +75,7 @@
           <option value="ansible">Ansible</option>
           <option value="csharp">C#</option>
           <option value="clojure">Clojure</option>
-          <option value="coldfusion">ColdFusion</option>
+          <option value="coldfusion" selected>ColdFusion</option>
           <option value="dart">Dart</option>
           <option value="elixir">Elixir</option>
           <option value="go">Go</option>
@@ -105,7 +105,7 @@
           <option value="php-guzzle">PHP + Guzzle</option>
           <option value="powershell-restmethod">PowerShell + Invoke-RestMethod</option>
           <option value="powershell-webrequest">PowerShell + Invoke-WebRequest</option>
-          <option value="python" selected>Python + Requests</option>
+          <option value="python">Python + Requests</option>
           <option value="python-httpclient">Python + http.client</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
@@ -129,7 +129,7 @@
           <a class="nav-link" href="/csharp/">C#</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/coldfusion/" title="ColdFusion Markup Language">ColdFusion</a>
+          <a class="nav-link active" href="/coldfusion/" title="ColdFusion Markup Language">ColdFusion</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/clojure/">Clojure</a>
@@ -211,9 +211,9 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Python</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Python</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="/python/">Requests</a></li>
+            <li><a class="dropdown-item" href="/python/">Requests</a></li>
             <li><a class="dropdown-item" href="/python-httpclient/">http.client</a></li>
           </ul>
         </li>
@@ -237,9 +237,12 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
+        <pre><code id="generated-code">httpService = <span class="hljs-keyword">new</span> <span class="hljs-title function_">http</span>();
+httpService.<span class="hljs-title function_">setUrl</span>(<span class="hljs-string">&quot;http://example.com&quot;</span>);
+httpService.<span class="hljs-title function_">setMethod</span>(<span class="hljs-string">&quot;GET&quot;</span>);
 
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)
+result = httpService.<span class="hljs-title function_">send</span>().<span class="hljs-title function_">getPrefix</span>();
+<span class="hljs-title function_">writeDump</span>(result);
 </code></pre>
       </div>
     </div>
